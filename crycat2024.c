@@ -35,11 +35,11 @@ char * loadFile( char * filename ) {
 
 void crycat( int argc , char ** argv ) {
 	char * fileNameTable	= argv[1];			// shared-table filename
-	char * key				= argv[2];			// password (keys:table)
-	char * filenameIn		= argv[3];			// input  filename
-	char * filenameOut		= argv[4];			// output filename
-	FILE * fp1;									// FilePoint in
-	FILE * fp2;									// FilePoint out
+	char * key		= argv[2];			// password (keys:table)
+	char * filenameIn	= argv[3];			// input  filename
+	char * filenameOut	= argv[4];			// output filename
+	FILE * fp1;						// FilePoint in
+	FILE * fp2;						// FilePoint out
 	int s=0;
 	int c;
 
@@ -48,11 +48,11 @@ void crycat( int argc , char ** argv ) {
 	fp1 = fopen( filenameIn  , "r");
 	fp2 = fopen( filenameOut , "w");
 	while( (c = fgetc(fp1))!=EOF ) {
-		int k = key[s % strlen(key)];
-		k = k + s ; //printf(" %i" , k );
-		int p = table[ k % strlen(table) ];
-		p =  p + k ; //printf(" %i" , p );
-		fputc( c^p , fp2 );
+		char k = key[s % strlen(key)];
+		long index = k + s ;                             //printf(" :%ld " , index  ); // printf(" :%ld %i" , index , s );
+		char p = table[ index % strlen(table) ];
+		p =  p ^ k ;                                     //printf(" ^%i" , p );
+		fputc( c ^ p  , fp2 );
 		s++;
 	}
 	fclose(fp1);
