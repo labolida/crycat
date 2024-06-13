@@ -7,7 +7,7 @@ void help() {
 		printf("\n This program is released under GNU GPL v3 license - https://www.gnu.org/licenses" ) ;
 		printf("\n Opensource distributed by the author leonardo.labolida.com ");
 		printf("\n Missing parameters. Expected: " ) ;
-		printf("\n		 param[1]: Filename of a shared table. This is going to be a part of the encription key." ) ;
+		printf("\n		 param[1]: Filename of a shared table. This is going to be part of the encription key." ) ;
 		printf("\n		 param[2]: A secret character secuence. this is going to be the key to access the shared table." ) ;
 		printf("\n		 param[3]: Filename to be readed and processed - source input." ) ;
 		printf("\n		 param[4]: Filename to be wrote and processed - target output." ) ;
